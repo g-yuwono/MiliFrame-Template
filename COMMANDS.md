@@ -50,6 +50,7 @@ echo $myproj # confirm
 conda create -n $myproj python=3.x -y ## please change to the correct version 3.x could be a version like 3.9 0r 3.12
 conda activate $myproj ## it is recommended that use you project as the env name
 
+pip install -r requirments.txt
 pip install jupytext nbconvert nbformat
 pip install pre-commit
 pre-commit install
