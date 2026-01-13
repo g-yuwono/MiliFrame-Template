@@ -53,7 +53,7 @@ cat .env
 conda env create -f environment.yml 
 conda activate $myproj ## it is recommended that use you project as the env name
 
-pip install --upgrade pip
+pip install -r requirments.txt
 pip install jupytext nbconvert nbformat
 pip install pre-commit
 pre-commit install
