@@ -35,21 +35,25 @@ git push -u origin main
 ### store your myproj in the .env
 ```bash
 echo -n > .env
-echo "myproj=ESG08b3a" >> .env
+echo "myproj=$myproj" >> .env
 set -a
 source .env
 set +a
 
 echo $myproj # confirm
+
+echo "PROJECT_ROOT=$(pwd)" >> .env
+cat .env
 ```
 
 ---
 
 ## Run from scratch to build a new project
 ```
-conda create -n $myproj python=3.x -y ## please change to the correct version 3.x could be a version like 3.9 0r 3.12
+conda env create -f environment.yml 
 conda activate $myproj ## it is recommended that use you project as the env name
 
+pip install --upgrade pip
 pip install jupytext nbconvert nbformat
 pip install pre-commit
 pre-commit install
@@ -74,9 +78,9 @@ dvc remote add -d ANYTHING YOUR/DATA/LOCATION(Another Folder)
 ```
 conda env create -f environment.yml
 conda activate $myproj
-git init
+pip install -r requirements.txt
 pre-commit install
-dvc init
+dvc pull
 ```
 
 ---
